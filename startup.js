@@ -5,7 +5,7 @@ const { createBareServer } = require('@tomphttp/bare-server-node');
 const app = next({ dev: process.env.NODE_ENV !== 'production' });
 const handle = app.getRequestHandler();
 
-app.prepare();
+app.prepare().then(() => {
 
 const httpServer = http.createServer();
 
@@ -32,5 +32,7 @@ httpServer.on('listening', () => {
 });
 
 httpServer.listen({
-    port: 3000,
+  port: 3000,
+});
+
 });
