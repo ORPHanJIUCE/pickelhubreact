@@ -28,11 +28,11 @@ httpServer.on('upgrade', (req, socket, head) => {
 });
 
 httpServer.on('listening', () => {
-    console.log(' > PIKL ready on port 3000');
+   console.log(' > PIKL ready on port ' + (process.env.PORT || 3000));
 });
 
 httpServer.listen({
-  port: 3000,
+  port: process.env.PORT || 3000,
 });
 
 });
